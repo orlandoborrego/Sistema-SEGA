@@ -5,3 +5,4 @@ Flask-Login
 pyodbc
 gunicorn
 python-dotenv
+openpyxl
