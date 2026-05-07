@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+    .form-card {
+        background: white;
+        border-radius: 12px;
+        padding: 2rem;
+        box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        border: 1px solid #e8ecf1;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    .form-card h5 {
+        color: #0d2b45;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid #e8ecf1;
+    }
+    .form-label {
+        font-weight: 600;
+        color: #3a4a5a;
+        font-size: 0.9rem;
+    }
+    .form-control, .form-select {
+        border: 2px solid #e0e6ed;
+        border-radius: 8px;
+        padding: 0.7rem 1rem;
+        transition: 0.2s;
+    }
+    .form-control:focus, .form-select:focus {
+        border-color: #0d2b45;
+        box-shadow: 0 0 0 3px rgba(13,43,69,0.08);
+    }
+    .btn-guardar {
+        background: #0d2b45;
+        color: white;
+        border: none;
+        padding: 0.7rem 2rem;
+        border-radius: 6px;
+        font-weight: 600;
+    }
+    .btn-guardar:hover {
+        background: #061a2e;
+        color: white;
+    }
+    .btn-cerrar {
+        background: white;
+        color: #5a7a9a;
+        border: 2px solid #dce6f0;
+        padding: 0.7rem 2rem;
+        border-radius: 6px;
+        font-weight: 600;
+        text-decoration: none;
+    }
+    .btn-cerrar:hover {
+        background: #f5f7fa;
+    }
+    .file-info {
+        font-size: 0.8rem;
+        color: #6c7a8a;
+        margin-top: 0.5rem;
+    }
+</style>
+
+<div class="form-card">
+    <h5><i class="bi bi-plus-circle"></i> Agregar ó Actualizar registro</h5>
+    <form method="POST" enctype="multipart/form-data">
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <label class="form-label">ENTIDAD *</label>
+                <input type="text" name="entidad" class="form-control" placeholder="Nombre de la entidad" required>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label class="form-label">TIPO DOCUMENTO *</label>
+                <select name="tipo_documento" class="form-select" required>
+                    <option value="">SELECCIÓN</option>
+                    <option value="Oficio">Oficio</option>
+                    <option value="Reporte">Reporte</option>
+                    <option value="Factura">Factura</option>
+                    <option value="Acta">Acta</option>
+                    <option value="Memorándum">Memorándum</option>
+                    <option value="Otro">Otro</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">FECHA</label>
+                <input type="date" name="fecha" class="form-control">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <label class="form-label">DOCUMENTO ANEXO</label>
+                <input type="file" name="documento" class="form-control" accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png,.rar,.zip">
+                <div class="file-info">
+                    Extensiones Permitidas: (doc, docx, xls, xlsx, jpg, png, rar, zip, PDF)
+                </div>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <label class="form-label">OBSERVACIONES</label>
+                <textarea name="observaciones" class="form-control" rows="3" placeholder="Observaciones..."></textarea>
+            </div>
+        </div>
+        <div class="d-flex gap-2">
+            <button type="submit" class="btn-guardar"><i class="bi bi-save"></i> Guardar</button>
+            <a href="{{ url_for('hipervinculos.listar') }}" class="btn-cerrar">Cerrar</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

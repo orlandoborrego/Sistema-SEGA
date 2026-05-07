@@ -1,0 +1,184 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+    .welcome-banner {
+        background: linear-gradient(135deg, #0d2b45 0%, #1a4a75 100%);
+        color: white;
+        padding: 2.5rem 2rem;
+        border-radius: 12px;
+        margin-bottom: 2rem;
+        box-shadow: 0 5px 20px rgba(13, 43, 69, 0.2);
+    }
+
+    .welcome-banner h2 {
+        font-weight: 700;
+        margin-bottom: 0.3rem;
+        font-size: 1.8rem;
+    }
+
+    .welcome-banner p {
+        opacity: 0.85;
+        margin: 0;
+        font-size: 0.95rem;
+    }
+
+    .institucional-card {
+        background: rgba(13, 210, 253, 0.14);
+        border-radius: 12px;
+        padding: 2rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        border: 1px solid #e8ecf1;
+        transition: 0.2s;
+    }
+
+    .institucional-card:hover {
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .institucional-card .icono-titulo {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+        padding-bottom: 0.8rem;
+        border-bottom: 2px solid #e8ecf1;
+    }
+
+    .institucional-card .icono-titulo i {
+        font-size: 2rem;
+        color: #0d2b45;
+        margin-right: 1rem;
+    }
+
+    .institucional-card .icono-titulo h4 {
+        color: #0d2b45;
+        font-weight: 700;
+        margin: 0;
+        font-size: 1.3rem;
+    }
+
+    .institucional-card p {
+        color: #3a4a5a;
+        line-height: 1.7;
+        font-size: 0.95rem;
+        margin: 0;
+    }
+
+    .valores-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .valor-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.8rem;
+        padding: 1rem;
+        background: #f8fafc;
+        border-radius: 8px;
+        border-left: 4px solid #0d2b45;
+    }
+
+    .valor-item i {
+        color: #0d2b45;
+        font-size: 1.5rem;
+        margin-top: 2px;
+    }
+
+    .valor-item strong {
+        display: block;
+        color: #0d2b45;
+        margin-bottom: 0.2rem;
+        font-size: 0.9rem;
+    }
+
+    .valor-item span {
+        color: #5a7a9a;
+        font-size: 0.85rem;
+        line-height: 1.5;
+    }
+</style>
+
+<!-- Banner de bienvenida -->
+<div class="welcome-banner">
+    <h2>Bienvenido, {{ current_user.email }}</h2>
+    <p>Sistema Estratégico de Gestión de Archivos - FISCALIA GENERAL DEL ESTADO DE TAMAULIPAS</p>
+</div>
+
+<!-- MISIÓN -->
+<div class="institucional-card">
+    <div class="icono-titulo">
+        <i class="bi bi-bullseye"></i>
+        <h4>Misión</h4>
+    </div>
+    <p>
+        Somos una Fiscalía autónoma que garantiza el acceso a la justicia, el debido proceso,
+        la verdad y la reparación del daño a las personas víctimas de delito, el respeto y
+        protección a los derechos humanos mediante el profesionalismo y efectividad en la
+        investigación criminal para fomentar confianza y seguridad en la ciudadanía.
+    </p>
+</div>
+
+<!-- VISIÓN -->
+<div class="institucional-card">
+    <div class="icono-titulo">
+        <i class="bi bi-eye"></i>
+        <h4>Visión</h4>
+    </div>
+    <p>
+        Ser una institución reconocida por su profesionalismo, eficiencia en la procuración
+        de justicia a través de personal comprometido, confiable, con sentido humano y de
+        pertenencia, así como vocación de servicio a la ciudadanía mediante tecnología de
+        vanguardia y recursos humanos especializados.
+    </p>
+</div>
+
+<!-- VALORES -->
+<div class="institucional-card">
+    <div class="icono-titulo">
+        <i class="bi bi-star"></i>
+        <h4>Valores</h4>
+    </div>
+    <div class="valores-grid">
+        <div class="valor-item">
+            <i class="bi bi-shield-check"></i>
+            <div>
+                <strong>Respeto y protección a derechos humanos</strong>
+                <span>Velar, garantizar y promover el cumplimiento irrestricto de los derechos humanos con perspectiva
+                    de género.</span>
+            </div>
+        </div>
+        <div class="valor-item">
+            <i class="bi bi-gem"></i>
+            <div>
+                <strong>Honestidad</strong>
+                <span>Desempeñar funciones con apego a la verdad y la justicia.</span>
+            </div>
+        </div>
+        <div class="valor-item">
+            <i class="bi bi-heart"></i>
+            <div>
+                <strong>Ética</strong>
+                <span>Actuar con absoluta moral, brindando un servicio digno y respetuoso a la ciudadanía.</span>
+            </div>
+        </div>
+        <div class="valor-item">
+            <i class="bi bi-briefcase"></i>
+            <div>
+                <strong>Profesionalismo</strong>
+                <span>Funciones con apego a la Filosofía Institucional, mostrando empatía y sensibilización.</span>
+            </div>
+        </div>
+        <div class="valor-item">
+            <i class="bi bi-people"></i>
+            <div>
+                <strong>Servicio a la ciudadanía</strong>
+                <span>Obligación de brindar atención de calidad con trato digno a las personas usuarias.</span>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
