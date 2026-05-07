@@ -82,6 +82,7 @@
     }
     .table {
         margin-bottom: 0;
+        table-layout: fixed;
     }
     .table thead {
         background: #f5f7fa;
@@ -90,33 +91,52 @@
         border-bottom: 2px solid #dce6f0;
         color: #0d2b45;
         font-weight: 700;
-        font-size: 0.85rem;
+        font-size: 0.8rem;
         text-transform: uppercase;
         letter-spacing: 0.5px;
-        padding: 1rem;
+        padding: 0.8rem 0.5rem;
+        white-space: nowrap;
     }
     .table tbody td {
-        padding: 0.8rem 1rem;
+        padding: 0.7rem 0.5rem;
         vertical-align: middle;
         color: #3a4a5a;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
+        word-break: break-word;
     }
     .btn-action {
         padding: 0.3rem 0.7rem;
         border-radius: 5px;
-        font-size: 0.85rem;
+        font-size: 0.8rem;
     }
     .empty-state {
         text-align: center;
         padding: 3rem;
         color: #7a8fa0;
     }
+    .link-pdf {
+        color: #0d6efd;
+        font-weight: 600;
+        text-decoration: none;
+        font-size: 0.85rem;
+        word-break: break-all;
+    }
+    .link-pdf:hover {
+        text-decoration: underline !important;
+        color: #0a58ca !important;
+    }
+    /* Anchos fijos para cada columna */
+    .col-entidad { width: 18%; }
+    .col-tipo { width: 12%; }
+    .col-fecha { width: 10%; }
+    .col-link { width: 30%; }
+    .col-obs { width: 20%; }
+    .col-eliminar { width: 10%; }
 </style>
 
 <div class="page-header">
     <h4><i class="bi bi-archive"></i> Archivos</h4>
     
-    <!-- Barra de búsqueda y botones -->
     <div class="d-flex flex-wrap justify-content-between align-items-center">
         <form method="GET" action="{{ url_for('hipervinculos.listar') }}" class="search-bar">
             <input type="text" name="q" placeholder="Buscar por entidad, tipo o contenido..." value="{{ busqueda }}">
@@ -144,12 +164,12 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>ENTIDAD</th>
-                    <th>TIPO DE DOCUMENTO</th>
-                    <th>FECHA</th>
-                    <th>HIPERVÍNCULO</th>
-                    <th>OBSERVACIONES</th>
-                    <th>ELIMINAR</th>
+                    <th class="col-entidad">ENTIDAD</th>
+                    <th class="col-tipo">TIPO DOCUMENTO</th>
+                    <th class="col-fecha">FECHA</th>
+                    <th class="col-link">HIPERVÍNCULO</th>
+                    <th class="col-obs">OBSERVACIONES</th>
+                    <th class="col-eliminar">ELIMINAR</th>
                 </tr>
             </thead>
             <tbody>
@@ -157,14 +177,22 @@
                 <tr>
                     <td>{{ r.entidad }}</td>
                     <td><span class="badge bg-secondary">{{ r.tipo_documento }}</span></td>
-                    <td>{{ r.fecha or '-' }}</td>
+                    <td style="white-space: nowrap;">{{ r.fecha or '-' }}</td>
                     <td>
-                        <a href="{{ r.url_pdf }}" target="_blank" class="btn btn-sm btn-outline-primary" title="Abrir PDF">
-                            <i class="bi bi-file-pdf"></i> Abrir
-                        </a>
+                        {% if r.url_pdf %}
+                            <a href="{{ r.url_pdf }}" 
+                               target="_blank" 
+                               class="link-pdf"
+                               title="{{ r.url_pdf }}">
+                                <i class="bi bi-link-45deg me-1"></i>
+                                {{ r.url_pdf.split('/')[-1] }}
+                            </a>
+                        {% else %}
+                            <span class="text-muted">—</span>
+                        {% endif %}
                     </td>
-                    <td>{{ r.observaciones[:50] if r.observaciones else '-' }}</td>
-                    <td>
+                    <td>{{ r.observaciones[:40] if r.observaciones else '-' }}</td>
+                    <td class="text-center">
                         <a href="{{ url_for('hipervinculos.eliminar', id=r.id) }}" 
                            class="btn btn-danger btn-action"
                            onclick="return confirm('¿Eliminar registro?')">
