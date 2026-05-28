@@ -18,7 +18,7 @@ class Config:
             "?driver=ODBC+Driver+18+for+SQL+Server&TrustServerCertificate=yes"
         )
     else:
-        # Fallback a SQLite para desarrollo local
+        
         SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'sistema.db')
     
     SQLALCHEMY_TRACK_MODIFICATIONS = False

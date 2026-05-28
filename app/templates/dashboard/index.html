@@ -3,12 +3,12 @@
 
 <style>
     .welcome-banner {
-        background: linear-gradient(135deg, #0d2b45 0%, #1a4a75 100%);
+        background: linear-gradient(135deg, #6f6f6f 0%, #878787 100%);
         color: white;
         padding: 2.5rem 2rem;
         border-radius: 12px;
         margin-bottom: 2rem;
-        box-shadow: 0 5px 20px rgba(13, 43, 69, 0.2);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
     }
 
     .welcome-banner h2 {
@@ -18,18 +18,18 @@
     }
 
     .welcome-banner p {
-        opacity: 0.85;
+        opacity: 0.9;
         margin: 0;
         font-size: 0.95rem;
     }
 
     .institucional-card {
-        background: rgba(13, 210, 253, 0.14);
+        background: #efefef;
         border-radius: 12px;
         padding: 2rem;
         margin-bottom: 1.5rem;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        border: 1px solid #e8ecf1;
+        border: 1px solid #d5d5d5;
         transition: 0.2s;
     }
 
@@ -42,24 +42,24 @@
         align-items: center;
         margin-bottom: 1rem;
         padding-bottom: 0.8rem;
-        border-bottom: 2px solid #e8ecf1;
+        border-bottom: 2px solid #d8d8d8;
     }
 
     .institucional-card .icono-titulo i {
         font-size: 2rem;
-        color: #0d2b45;
+        color: #5f5f5f;
         margin-right: 1rem;
     }
 
     .institucional-card .icono-titulo h4 {
-        color: #0d2b45;
+        color: #5f5f5f;
         font-weight: 700;
         margin: 0;
         font-size: 1.3rem;
     }
 
     .institucional-card p {
-        color: #3a4a5a;
+        color: #4f4f4f;
         line-height: 1.7;
         font-size: 0.95rem;
         margin: 0;
@@ -77,38 +77,37 @@
         align-items: flex-start;
         gap: 0.8rem;
         padding: 1rem;
-        background: #f8fafc;
+        background: #f8f8f8;
         border-radius: 8px;
-        border-left: 4px solid #0d2b45;
+        border-left: 4px solid #878787;
     }
 
     .valor-item i {
-        color: #0d2b45;
+        color: #5f5f5f;
         font-size: 1.5rem;
         margin-top: 2px;
     }
 
     .valor-item strong {
         display: block;
-        color: #0d2b45;
+        color: #5f5f5f;
         margin-bottom: 0.2rem;
         font-size: 0.9rem;
     }
 
     .valor-item span {
-        color: #5a7a9a;
+        color: #6f6f6f;
         font-size: 0.85rem;
         line-height: 1.5;
     }
 </style>
 
-<!-- Banner de bienvenida -->
+
 <div class="welcome-banner">
     <h2>Bienvenido, {{ current_user.email }}</h2>
     <p>Sistema Estratégico de Gestión de Archivos - FISCALIA GENERAL DEL ESTADO DE TAMAULIPAS</p>
 </div>
 
-<!-- MISIÓN -->
 <div class="institucional-card">
     <div class="icono-titulo">
         <i class="bi bi-bullseye"></i>
@@ -116,13 +115,12 @@
     </div>
     <p>
         Somos una Fiscalía autónoma que garantiza el acceso a la justicia, el debido proceso,
-        la verdad y la reparación del daño a las personas víctimas de delito, el respeto y
+        la verdad y la. reparación del daño a las personas víctimas de delito, el respeto y
         protección a los derechos humanos mediante el profesionalismo y efectividad en la
         investigación criminal para fomentar confianza y seguridad en la ciudadanía.
     </p>
 </div>
 
-<!-- VISIÓN -->
 <div class="institucional-card">
     <div class="icono-titulo">
         <i class="bi bi-eye"></i>
@@ -136,7 +134,7 @@
     </p>
 </div>
 
-<!-- VALORES -->
+
 <div class="institucional-card">
     <div class="icono-titulo">
         <i class="bi bi-star"></i>

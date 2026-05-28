@@ -10,7 +10,7 @@ from werkzeug.utils import secure_filename
 
 hipervinculos_bp = Blueprint('hipervinculos', __name__)
 
-# Extensiones permitidas
+
 ALLOWED_EXTENSIONS = {'pdf', 'doc', 'docx', 'xls', 'xlsx', 'jpg', 'jpeg', 'png', 'rar', 'zip'}
 
 def allowed_file(filename):
@@ -46,7 +46,7 @@ def crear():
         url_pdf = None
         if file and file.filename != '' and allowed_file(file.filename):
             filename = secure_filename(file.filename)
-            # Agregar timestamp para evitar nombres duplicados
+          
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
             filename = f"{timestamp}_{filename}"
             filepath = os.path.join(current_app.root_path, 'static', 'uploads', filename)
@@ -83,7 +83,7 @@ def editar(id):
         
         file = request.files.get('documento')
         if file and file.filename != '' and allowed_file(file.filename):
-            # Eliminar archivo anterior si existe
+          
             if registro.url_pdf:
                 old_path = os.path.join(current_app.root_path, 'static', 'uploads', 
                                         os.path.basename(registro.url_pdf))
@@ -109,7 +109,7 @@ def editar(id):
 @login_required
 def eliminar(id):
     registro = Hipervinculo.query.get_or_404(id)
-    # Eliminar archivo físico si existe
+    
     if registro.url_pdf:
         filepath = os.path.join(current_app.root_path, 'static', 'uploads', 
                                 os.path.basename(registro.url_pdf))

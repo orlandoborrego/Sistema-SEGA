@@ -6,17 +6,19 @@
         padding: 0;
         box-sizing: border-box;
     }
+
     body {
         background: white;
         overflow: hidden;
     }
+
     .login-wrapper {
         display: flex;
         height: 100vh;
         width: 100vw;
     }
-    
-    /* ===== LADO IZQUIERDO: FORMULARIO ===== */
+
+
     .login-left {
         width: 40%;
         min-width: 420px;
@@ -26,16 +28,19 @@
         justify-content: center;
         padding: 3rem;
     }
+
     .login-card {
         width: 100%;
         max-width: 400px;
         text-align: center;
     }
+
     .login-logo {
         width: 100px;
         height: auto;
         margin-bottom: 1rem;
     }
+
     .login-title {
         font-size: 2.8rem;
         font-weight: 800;
@@ -43,6 +48,7 @@
         margin-bottom: 0.2rem;
         letter-spacing: 4px;
     }
+
     .login-subtitle {
         font-size: 0.85rem;
         color: #5a7a9a;
@@ -50,6 +56,7 @@
         font-weight: 500;
         line-height: 1.4;
     }
+
     .login-input {
         background: #f5f7fa;
         border: 2px solid #e0e6ed;
@@ -63,18 +70,21 @@
         margin-bottom: 1.2rem;
         transition: 0.3s;
     }
+
     .login-input:focus {
         border-color: #0d2b45;
-        box-shadow: 0 0 0 3px rgba(13,43,69,0.1);
+        box-shadow: 0 0 0 3px rgba(13, 43, 69, 0.1);
         outline: none;
         background: white;
     }
+
     .login-input::placeholder {
         color: #a0b0c0;
     }
+
     .login-btn {
-        background: #0d2b45;
-        color: white;
+        background-color: #dadada;
+        color: #000;
         border: none;
         border-radius: 8px;
         padding: 14px;
@@ -86,26 +96,29 @@
         letter-spacing: 3px;
         margin-top: 0.3rem;
     }
+
     .login-btn:hover {
-        background: #061a2e;
+        background: #878787;
+        color: white;
     }
+
     .login-footer {
         margin-top: 2.5rem;
         font-size: 0.75rem;
         color: #7a8fa0;
         line-height: 1.6;
     }
+
     .login-footer strong {
         color: #0d2b45;
     }
 
-    /* ===== LADO DERECHO: IMAGEN DE FONDO ===== */
     .login-right {
         width: 60%;
-        background: url("{{ url_for('static', filename='img/fondo-login.jpg') }}") center/cover no-repeat;
-        background-position: center;
+        background: #878787;
         position: relative;
     }
+
     .login-right::before {
         content: '';
         position: absolute;
@@ -113,8 +126,9 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(to bottom, rgba(13,43,69,0.55), rgba(13,43,69,0.75));
+        background: transparent;
     }
+
     .login-right-content {
         position: relative;
         z-index: 1;
@@ -127,23 +141,26 @@
         text-align: center;
         padding: 3rem;
     }
+
     .login-right-content h2 {
         font-size: 2.5rem;
         font-weight: 700;
-        text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
         margin-bottom: 1rem;
     }
+
     .login-right-content p {
         font-size: 1.1rem;
-        text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
         max-width: 500px;
     }
 
-    /* ===== RESPONSIVE ===== */
+
     @media (max-width: 768px) {
         .login-right {
             display: none;
         }
+
         .login-left {
             width: 100%;
             min-width: 100%;
@@ -152,35 +169,25 @@
 </style>
 
 <div class="login-wrapper">
-    <!-- LADO IZQUIERDO: FORMULARIO -->
+
     <div class="login-left">
         <div class="login-card">
-            <!-- Logo - Pon tu imagen en app/static/img/logo.png -->
-            <img src="{{ url_for('static', filename='img/logo.png') }}" 
-                 alt="Logo" 
-                 class="login-logo"
-                 onerror="this.style.display='none'">
-            
+
+            <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo" class="login-logo"
+                onerror="this.style.display='none'">
+
             <h1 class="login-title">SEGA</h1>
             <p class="login-subtitle">Sistema Estratégico de Gestión de Archivos</p>
-<p style="text-align:center; margin-top:1rem;">
-    <a href="{{ url_for('auth.register') }}" style="color:#0d2b45; text-decoration:underline;">
-        Crear cuenta nueva
-    </a>
-</p>
+            <p style="text-align:center; margin-top:1rem;">
+                <a href="{{ url_for('auth.register') }}" style="color:#0d2b45; text-decoration:underline;">
+                    Crear cuenta nueva
+                </a>
+            </p>
             <form method="POST">
-                <input type="text" 
-                       name="username" 
-                       class="login-input" 
-                       placeholder="Ingrese su usuario"
-                       required>
-                
-                <input type="password" 
-                       name="password" 
-                       class="login-input" 
-                       placeholder="Ingrese su contraseña"
-                       required>
-                
+                <input type="text" name="username" class="login-input" placeholder="Ingrese su usuario" required>
+
+                <input type="password" name="password" class="login-input" placeholder="Ingrese su contraseña" required>
+
                 <button type="submit" class="login-btn">Acceder</button>
             </form>
 
@@ -191,7 +198,7 @@
         </div>
     </div>
 
-    <!-- LADO DERECHO: IMAGEN DE FONDO -->
+
     <div class="login-right">
         <div class="login-right-content">
             <h2>FISCALIA GENERAL DEL ESTADO DE TAMAULIPAS</h2>
@@ -200,9 +207,9 @@
     </div>
 </div>
 
-<!-- Eliminar navbar en login -->
+
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         var nav = document.querySelector('.navbar');
         if (nav) nav.remove();
     });

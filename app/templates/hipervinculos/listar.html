@@ -5,163 +5,222 @@
     .page-header {
         background: white;
         border-radius: 12px;
-        padding: 1.5rem 2rem;
-        margin-bottom: 1.5rem;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        padding: 1.2rem 1.5rem;
+        margin-bottom: 1.2rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         border: 1px solid #e8ecf1;
     }
+
     .page-header h4 {
-        color: #0d2b45;
+        color: #444;
         font-weight: 700;
         margin: 0;
         margin-bottom: 1rem;
+        font-size: 1.2rem;
     }
+
     .search-bar {
         display: flex;
         gap: 0.5rem;
         margin-bottom: 1rem;
         flex-wrap: wrap;
     }
+
     .search-bar input {
         flex: 1;
         min-width: 250px;
-        border: 2px solid #e0e6ed;
+        border: 1px solid #dcdcdc;
         border-radius: 8px;
-        padding: 0.6rem 1rem;
-        font-size: 0.9rem;
+        padding: 0.55rem 0.9rem;
+        font-size: 0.85rem;
+        background: #fafafa;
     }
+
     .search-bar input:focus {
-        border-color: #0d2b45;
         outline: none;
-        box-shadow: 0 0 0 3px rgba(13,43,69,0.1);
+        border-color: #b5b5b5;
+        box-shadow: 0 0 0 3px rgba(218, 218, 218, 0.3);
     }
-    .search-bar button {
-        background: #0d2b45;
-        color: white;
-        border: none;
-        padding: 0.6rem 1.2rem;
-        border-radius: 8px;
-        font-weight: 600;
-        display: flex;
-        align-items: center;
-        gap: 0.3rem;
-    }
-    .btn-nuevo, .btn-excel {
-        padding: 0.6rem 1.2rem;
-        border-radius: 8px;
-        font-weight: 600;
-        display: flex;
-        align-items: center;
-        gap: 0.3rem;
-        text-decoration: none;
-    }
-    .btn-nuevo {
-        background: #0d2b45;
-        color: white;
-        border: none;
-    }
-    .btn-nuevo:hover {
-        background: #061a2e;
-        color: white;
-    }
+
+    .search-bar button,
+    .btn-nuevo,
     .btn-excel {
-        background: #1f7145;
-        color: white;
+        background: #dadada;
+        color: #222;
         border: none;
+        padding: 0.55rem 1rem;
+        border-radius: 8px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+        font-size: 0.82rem;
     }
+
+    .search-bar button:hover,
+    .btn-nuevo:hover,
     .btn-excel:hover {
-        background: #155a35;
-        color: white;
+        background: #bfbfbf;
+        color: #000;
     }
+
     .table-container {
         background: white;
         border-radius: 12px;
-        padding: 1rem;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        padding: 0.8rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         border: 1px solid #e8ecf1;
     }
+
     .table {
         margin-bottom: 0;
-        table-layout: fixed;
     }
+
     .table thead {
-        background: #f5f7fa;
+        background: #f7f7f7;
     }
+
     .table thead th {
-        border-bottom: 2px solid #dce6f0;
-        color: #0d2b45;
+        color: #555;
         font-weight: 700;
-        font-size: 0.8rem;
+        font-size: 0.72rem;
         text-transform: uppercase;
         letter-spacing: 0.5px;
         padding: 0.8rem 0.5rem;
+        border-bottom: 2px solid #ececec;
         white-space: nowrap;
     }
+
     .table tbody td {
-        padding: 0.7rem 0.5rem;
+        padding: 0.8rem 0.5rem;
         vertical-align: middle;
-        color: #3a4a5a;
-        font-size: 0.85rem;
+        color: #444;
+        font-size: 0.82rem;
+        border-bottom: 1px solid #f1f1f1;
+        white-space: normal;
+        line-height: 1.3;
+    }
+
+    .table tbody tr:hover {
+        background: #fafafa;
+    }
+
+    .tipo-badge {
+        background: transparent;
+        color: #666;
+        padding: 0;
+        border-radius: 0;
+        font-size: 0.72rem;
+        font-weight: 600;
+        display: inline-block;
+        line-height: 1.3;
+        text-transform: uppercase;
+    }
+
+    .link-pdf {
+        color: #4d4d4d;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.78rem;
         word-break: break-word;
+        line-height: 1.3;
     }
+
+    .link-pdf:hover {
+        color: #000;
+        text-decoration: underline;
+    }
+
     .btn-action {
-        padding: 0.3rem 0.7rem;
-        border-radius: 5px;
-        font-size: 0.8rem;
+        padding: 0.35rem 0.6rem;
+        border-radius: 6px;
+        font-size: 0.75rem;
     }
+
     .empty-state {
         text-align: center;
         padding: 3rem;
-        color: #7a8fa0;
+        color: #888;
     }
-    .link-pdf {
-        color: #0d6efd;
-        font-weight: 600;
-        text-decoration: none;
-        font-size: 0.85rem;
-        word-break: break-all;
+
+    .col-entidad {
+        width: 20%;
     }
-    .link-pdf:hover {
-        text-decoration: underline !important;
-        color: #0a58ca !important;
+
+    .col-tipo {
+        width: 16%;
     }
-    /* Anchos fijos para cada columna */
-    .col-entidad { width: 18%; }
-    .col-tipo { width: 12%; }
-    .col-fecha { width: 10%; }
-    .col-link { width: 30%; }
-    .col-obs { width: 20%; }
-    .col-eliminar { width: 10%; }
+
+    .col-fecha {
+        width: 10%;
+    }
+
+    .col-link {
+        width: 27%;
+    }
+
+    .col-obs {
+        width: 20%;
+    }
+
+    .col-eliminar {
+        width: 7%;
+    }
 </style>
 
 <div class="page-header">
+
     <h4><i class="bi bi-archive"></i> Archivos</h4>
-    
+
     <div class="d-flex flex-wrap justify-content-between align-items-center">
+
         <form method="GET" action="{{ url_for('hipervinculos.listar') }}" class="search-bar">
+
             <input type="text" name="q" placeholder="Buscar por entidad, tipo o contenido..." value="{{ busqueda }}">
-            <button type="submit"><i class="bi bi-search"></i> Buscar</button>
+
+            <button type="submit">
+                <i class="bi bi-search"></i>
+                Buscar
+            </button>
+
             {% if busqueda %}
-                <a href="{{ url_for('hipervinculos.listar') }}" class="btn btn-outline-secondary ms-2" style="border-radius:8px;">
-                    <i class="bi bi-x-circle"></i> Limpiar
-                </a>
+            <a href="{{ url_for('hipervinculos.listar') }}" class="btn btn-outline-secondary ms-2"
+                style="border-radius:8px;">
+                <i class="bi bi-x-circle"></i>
+                Limpiar
+            </a>
             {% endif %}
+
         </form>
+
         <div class="d-flex gap-2 ms-auto">
+
             <a href="{{ url_for('hipervinculos.crear') }}" class="btn-nuevo">
-                <i class="bi bi-plus-lg"></i> Nuevo Registro
+                <i class="bi bi-plus-lg"></i>
+                Nuevo Registro
             </a>
+
             <a href="{{ url_for('hipervinculos.exportar') }}" class="btn-excel">
-                <i class="bi bi-file-earmark-excel"></i> Exportar Excel
+                <i class="bi bi-file-earmark-excel"></i>
+                Exportar Excel
             </a>
+
         </div>
+
     </div>
+
 </div>
 
 {% if registros %}
+
 <div class="table-container">
+
     <div class="table-responsive">
+
         <table class="table table-hover">
+
             <thead>
                 <tr>
                     <th class="col-entidad">ENTIDAD</th>
@@ -169,47 +228,91 @@
                     <th class="col-fecha">FECHA</th>
                     <th class="col-link">HIPERVÍNCULO</th>
                     <th class="col-obs">OBSERVACIONES</th>
-                    <th class="col-eliminar">ELIMINAR</th>
+                    <th class="col-eliminar text-center">ELIMINAR</th>
                 </tr>
             </thead>
+
             <tbody>
+
                 {% for r in registros %}
+
                 <tr>
-                    <td>{{ r.entidad }}</td>
-                    <td><span class="badge bg-secondary">{{ r.tipo_documento }}</span></td>
-                    <td style="white-space: nowrap;">{{ r.fecha or '-' }}</td>
+
+                    <td style="font-weight:500;">
+                        {{ r.entidad }}
+                    </td>
+
                     <td>
+                        <span class="tipo-badge">
+                            {{ r.tipo_documento }}
+                        </span>
+                    </td>
+
+                    <td style="white-space: nowrap;">
+                        {{ r.fecha or '-' }}
+                    </td>
+
+                    <td style="line-height:1.5;">
+
                         {% if r.url_pdf %}
-                            <a href="{{ r.url_pdf }}" 
-                               target="_blank" 
-                               class="link-pdf"
-                               title="{{ r.url_pdf }}">
-                                <i class="bi bi-link-45deg me-1"></i>
-                                {{ r.url_pdf.split('/')[-1] }}
-                            </a>
-                        {% else %}
-                            <span class="text-muted">—</span>
-                        {% endif %}
-                    </td>
-                    <td>{{ r.observaciones[:40] if r.observaciones else '-' }}</td>
-                    <td class="text-center">
-                        <a href="{{ url_for('hipervinculos.eliminar', id=r.id) }}" 
-                           class="btn btn-danger btn-action"
-                           onclick="return confirm('¿Eliminar registro?')">
-                            <i class="bi bi-trash"></i>
+
+                        <a href="{{ r.url_pdf }}" target="_blank" class="link-pdf" title="{{ r.url_pdf }}">
+
+                            <i class="bi bi-link-45deg me-1"></i>
+
+                            {{ r.url_pdf.split('/')[-1] }}
+
                         </a>
+
+                        {% else %}
+
+                        <span class="text-muted">—</span>
+
+                        {% endif %}
+
                     </td>
+
+                    <td style="line-height:1.4;">
+                        {{ r.observaciones[:50] if r.observaciones else '-' }}
+                    </td>
+
+                    <td class="text-center">
+
+                        <a href="{{ url_for('hipervinculos.eliminar', id=r.id) }}" class="btn btn-danger btn-action"
+                            onclick="return confirm('¿Eliminar registro?')">
+
+                            <i class="bi bi-trash"></i>
+
+                        </a>
+
+                    </td>
+
                 </tr>
+
                 {% endfor %}
+
             </tbody>
+
         </table>
+
     </div>
+
 </div>
+
 {% else %}
+
 <div class="empty-state">
+
     <i class="bi bi-archive" style="font-size: 3rem; opacity: 0.3;"></i>
+
     <h5>No hay archivos registrados</h5>
-    <p>Utilice el botón "Nuevo Registro" para agregar un hipervínculo</p>
+
+    <p>
+        Utilice el botón "Nuevo Registro" para agregar un hipervínculo
+    </p>
+
 </div>
+
 {% endif %}
+
 {% endblock %}
