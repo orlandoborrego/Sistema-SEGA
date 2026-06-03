@@ -27,6 +27,7 @@ def create_app():
     with app.app_context():
         from app.models.user import User
         from app.models.hipervinculo import Hipervinculo
+        from app.models.cat_organigrama import CatOrganigrama
         db.create_all()
 
     return app

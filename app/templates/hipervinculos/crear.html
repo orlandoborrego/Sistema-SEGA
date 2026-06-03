@@ -79,10 +79,15 @@
     <h5><i class="bi bi-plus-circle"></i> Agregar ó Actualizar registro</h5>
     <form method="POST" enctype="multipart/form-data">
         <div class="row mb-3">
-            <div class="col-md-12">
-                <label class="form-label">ENTIDAD *</label>
-                <input type="text" name="entidad" class="form-control" placeholder="Nombre de la entidad" required>
-            </div>
+            <select name="entidad" class="form-select" required>
+                <option value="">Seleccione una entidad...</option>
+
+                {% for o in organigramas %}
+                <option value="{{ o.nombre }}">
+                    {{ o.codigo }} - {{ o.nombre }}
+                </option>
+                {% endfor %}
+            </select>
         </div>
         <div class="row mb-3">
             <div class="col-md-6">
