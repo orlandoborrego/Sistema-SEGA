@@ -115,46 +115,71 @@
 
     .login-right {
         width: 60%;
-        background: #878787;
         position: relative;
+        overflow: hidden;
+        background: #878787;
+
+        background-image:
+            linear-gradient(rgba(255, 255, 255, .03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, .03) 1px, transparent 1px);
+
+        background-size: 50px 50px;
     }
 
     .login-right::before {
         content: '';
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: transparent;
+        width: 550px;
+        height: 550px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, .04);
+        top: -220px;
+        right: -220px;
+    }
+
+    .login-right::after {
+        content: '';
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, .03);
+        bottom: -150px;
+        left: -150px;
     }
 
     .login-right-content {
         position: relative;
-        z-index: 1;
+        z-index: 10;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         height: 100%;
-        color: white;
         text-align: center;
         padding: 3rem;
     }
 
-    .login-right-content h2 {
-        font-size: 2.5rem;
-        font-weight: 700;
-        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-        margin-bottom: 1rem;
+    .right-logo {
+        width: 70%;
+        max-width: 550px;
+        min-width: 280px;
+        filter: drop-shadow(0 15px 30px rgba(0, 0, 0, .25));
+        transition: all .3s ease;
     }
 
-    .login-right-content p {
-        font-size: 1.1rem;
-        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
-        max-width: 500px;
+    .right-logo:hover {
+        transform: scale(1.02);
     }
 
+    .right-subtitle {
+        margin-top: 25px;
+        color: rgba(255, 255, 255, .85);
+        font-size: 1rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, .25);
+    }
 
     @media (max-width: 768px) {
         .login-right {
@@ -179,7 +204,7 @@
             <h1 class="login-title">SEGA</h1>
             <p class="login-subtitle">Sistema Estratégico de Gestión de Archivos</p>
             <p style="text-align:center; margin-top:1rem;">
-        
+
             </p>
             <form method="POST">
                 <input type="text" name="username" class="login-input" placeholder="Ingrese su usuario" required>
@@ -196,20 +221,23 @@
         </div>
     </div>
 
+<div class="login-right">
+    <div class="login-right-content">
 
-    <div class="login-right">
-        <div class="login-right-content">
-            <h2>FISCALIA GENERAL DEL ESTADO DE TAMAULIPAS</h2>
-            <p>Sistema Estratégico de Gestión de Archivos</p>
-        </div>
+        <img src="{{ url_for('static', filename='img/logo_fgjtam_white.png') }}" alt="FGJTAM" class="right-logo">
+
+        <p class="right-subtitle">
+            Sistema Estratégico de Gestión de Archivos
+        </p>
+
     </div>
 </div>
 
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var nav = document.querySelector('.navbar');
-        if (nav) nav.remove();
-    });
-</script>
-{% endblock %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var nav = document.querySelector('.navbar');
+            if (nav) nav.remove();
+        });
+    </script>
+    {% endblock %}
